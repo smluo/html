@@ -15,9 +15,55 @@
     </style>
   </head>
   <body>
+    <div class="nav"> 
+      <ul>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><span>123</span></li>
+      </ul>
+
+      <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+      </ol>
+    </div>
+
     <script>
-      $("div").hide();
+      // 1.jquery入口函数(等待页面dom加载完毕) 再去执行代码
+      // $(document).ready(function () {
+      //   $("div").hide();
+      // })
+      // jquery入口函数第二种写法
+      // $(()=>{
+      //   $("div").hide();
+      // })
+      // var dm = document.querySelector("div"); // dom对象
+      // var jq = $("div"); // jquery对象
+      // console.log(dm, jq);
+
+      // 隐式迭代 
+      // $('li').css("background","red");
+
+      //筛选器
+      // 第一个
+      // $('ul li:first').css("background","red");
+      // $('ul li:eq(2)').css("background","blue");
+      // $('ul li:odd').css("background","yellow")
+      // $('ul li:even').css("background","yellow")
+
+      //获取父元素
+      // $('li').parent().css("background", "yellow")
+
+      //获取子元素(亲儿子)
+      // $('ul').children().css("background", "red");
+
+      //获取子元素(后代)
+        $('ul').find()
+
     </script>
-    <div></div>
   </body>
 </html>
