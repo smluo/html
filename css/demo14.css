@@ -1,0 +1,38 @@
+#echart {
+  border: 1px solid red;
+}
+.smluo {
+  border: 1px solid red;
+  height: 352px;
+}
+.circle1 {
+  background-color: green;
+  height: 6px;
+  width: 6px;
+  margin-top: 100px;
+  margin-left: 100px;
+  border-radius: 50%;
+}
+.circle2 {
+  background-color: black;
+  height: 6px;
+  width: 6px;
+  margin-top: 100px;
+  margin-left: 300px;
+  border-radius: 50%;
+}
+.circle1 i {
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -1px;
+  height: 2px;
+  background: #97cd74;
+  border-right: 3px solid #fff;
+  border-left: 3px solid #fff;
+  transform-origin: left;
+  /* transform: rotate(0.43007813505586256rad); */
+  z-index: 1;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>v-for生成checkBox组件</title>
+  </head>
+  <body>
+    <div id="app-10">
+      <el-form :inline="true" :key="item.id" v-for="item in items">
+        <el-form-item :label="item.id">
+          <el-switch></el-switch>
+        </el-form-item>
+      </el-form>
+    </div>
+    <script src="./vue/vue.js"></script>
+    <script src="./element-ui/lib/theme-chalk/index.css"></script>
+    <script src="./element-ui/lib/index.js"></script>
+    <script>
+      var app8 = new Vue({
+        el: "#app-10",
+        data: {
+          items: [{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }]
+        },
+        methods: {}
+      });
+    </script>
+  </body>
+</html>
+<dir></dir>

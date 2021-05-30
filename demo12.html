@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>解析二维码二进制字符串</title>
+  </head>
+  <body>
+    <div id="app-12">
+      <img ng-src="data:image/png;base64,${binary}" style="width: 200px;height: 200px;">
+    </div>
+    <script src="./vue/vue.js"></script>
+    <script>
+        var app = new Vue({
+          el: "#app-12",
+          data: {
+            binary: "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAIAAAAiOjnJAAACqklEQVR42u3dSxKDIBBAQe9/abwD"+
+"xXwY+q1TUaGzELTyLSmgzxAILIElsCSwBJbAksASWAJLAktgCSwJLIElsCSwBJbAksASWAJLAktg"+
+"CSwJLIElsCSwBJbAksASWAJLAktgCayTxyst83z6XztYYIEFFlhggQUWWGCBBVYHWLXH6vaZG8cZ"+
+"LLDAAgsssMACCyywwAIrerJP3d7fCD3u2sECCyywwAILLLDAAgsssMDK3OIFCyywwAILLLDAAgss"+
+"sMACa+rg1kIHCyywwAILLLDAAgsssMCaBKsb4lNX4dFksMACCyywwAILLLDAAgusr7TMZYL+1w4W"+
+"WGCBBRZYYIEFFlhggeUvT+Km//VhJAkssMACCyywBBZYYIG1O21x07/3zXufiTuW5QawwAILLLDA"+
+"AgsssMACa9JyQ9wDxP0nMnMLHCywwAILLLDAAgsssMAC615YtQsZp865FihYYIEFFlhggQUWWGCB"+
+"BVZPWJkTkDklcS/Qxv2owAILLLDAAgsssMACCyywepa5Ud3/xwAWWGCBBRZYYIEFFlhggfUarP4g"+
+"ntpgBgsssMACCyywwAILLLDASp7IzJdIuy12eGEVLLDAAgsssMACCyywwJoNq/ZYM5YSwAILLLDA"+
+"AgsssMACCyywJsGK2xg+tUwQ91rpmK1rsMACCyywwAILLLDAAgusK2DFgYgbsdrzAQsssMACCyyw"+
+"wAILLLDAmg2r23LDujOwwAILLLDAAgsssMACC6ztaatFnLlMsOYGFlhggQUWWGCBBRZYYIF18JY7"+
+"biO29nvi8NmEBgsssMACCyywwAILLLB6wtIjgSWwBJbAksASWAJLAktgCSwJLIElsCSwBJbAksAS"+
+"WAJLAktgCSwJLIElsCSwBJbAksASWAJLAktgCSwJLIGl2f10brbE+UrcVwAAAABJRU5ErkJggg=="
+          }
+        });
+      </script>
+</html>
+<dir></dir>

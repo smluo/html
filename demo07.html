@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>computed-计算属性</title>
+  </head>
+  <body>
+    <div id="app-7">
+      <p>origin value:{{message}}</p>
+      <p>reverse value:{{reverseMessage}}</p>
+      <p>method value:{{methodMessage()}}</p>
+      <p>当前时间:{{now}}</p>
+    </div>
+    <script src="./vue/vue.js"></script>
+    <script>
+      var vue = new Vue({
+        el: "#app-7",
+        data: {
+          message: "hello world"
+        },
+        computed: {
+          reverseMessage: function() {
+            //计算属性的getter
+            return this.message
+              .split("")
+              .reverse()
+              .join("");
+          },
+          now: function(){
+              return Date.now();
+          }
+        },
+        methods: {
+          methodMessage: function() {
+              return this.message.split('').reverse().join('');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

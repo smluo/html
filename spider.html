@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>起点小说网</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      ul {
+        display: flex;
+        border: 1px solid pink;
+        width: 80%;
+        height: 200px;
+        margin: 0 auto;
+        margin-top: 5%;
+      }
+      li {
+        flex: 1;
+        list-style: none;
+        height: 200px;
+        border: 1px solid red;
+      }
+
+      .flex-container {
+        /* We first create a flex layout context */
+        display: flex;
+
+        /* Then we define the flow direction
+           and if we allow the items to wrap
+         * Remember this is the same as:
+         * flex-direction: row;
+         * flex-wrap: wrap;
+         */
+
+        flex-flow: row wrap;
+
+        /* Then we define how is distributed the remaining space */
+        justify-content: space-around;
+
+        /* padding: 0;
+        margin: 0;
+        list-style: none; */
+      }
+
+      .flex-item {
+        background: tomato;
+        padding: 5px;
+        width: 200px;
+        height: 150px;
+        margin-top: 10px;
+        line-height: 150px;
+        color: white;
+        font-weight: bold;
+        font-size: 3em;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <!-- <li v-for="(item, index) in books" v-html="item.name"></li> -->
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <ul class="flex-container">
+        <li class="flex-item">1</li>
+        <li class="flex-item">2</li>
+        <li class="flex-item">3</li>
+        <li class="flex-item">4</li>
+        <li class="flex-item">5</li>
+        <li class="flex-item">6</li>
+      </ul>
+    </div>
+  </body>
+  <script src="vue/vue.js"></script>
+  <script src="axios/axios.min.js"></script>
+  <script src="js/spider.js"></script>
+</html>
