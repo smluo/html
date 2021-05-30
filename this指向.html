@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <button>点击</button>
+    <button id="1">点击</button>
+    <button id="2">点击</button>
+    <button id="3">点击</button>
     <script>
         // 全局作用域中this指向window
         // console.log(this)
@@ -37,12 +39,124 @@
         // }
         // o.sayHi();
 
-        //构造函数中this指向构造函数的实例
-        function Fn(){
-            console.log(this);
-        }
-        const fn = new Fn();
+        //构造函数中this指向构造函数的实例,原型对象指向的也是构造函数的实例
+        // function Fn(){
+        //     console.log(this);
+        // }
+        // const fn = new Fn();
 
+        // 立即执行函数中，this指向的也是window
+        // (function(){
+        //     console.log(this);
+        // })()
+
+
+        // 改变函数内部this的指向 js提供了三种方法：call() apply() bind()
+        // var o = {
+        //     name:'smluo'
+        // }
+
+        // function fn(){
+        //     console.log(this)
+        // }
+
+        // fn.call(); // call 1.调用函数 没有参数时函数指向window
+        // fn.call(o); //     2.改变this指向，此时指向o对象
+        // fn.call(o, 1, 2)// 3.o后面的参数代表实参
+        // call的主要作用可以实现继承
+        // function Father(name, age, sex) {
+        //     this.name = name;
+        //     this.age = age;
+        //     this.sex = sex;
+        // }
+
+        // function Son(name, age, sex){
+        //     Father.call(this, name, age, sex); // 这里的this指向的是Son的实例对象
+        // }
+
+        // var son = new Son("刘德华", 40, '男');
+        // console.log(son);
+
+        // apply用法
+        // var o = {
+        //     name: 'smluo'
+        // }
+         
+        // function fn(a){
+        //     console.log(this)
+        //     console.log(a)
+        // }
+
+        // fn.apply(o); // apply也可以改变this指向 但是后面的参数必须为数组，需要主要的是改变指向后的方法会把数组解析成数组中的值
+
+        // fn.apply(o, ['pink'])
+        // apply主要应用场景：利用内置对象Math对数组进行常规操作 如求最大值，最小值等
+        // let arr = [1, 5, 3, 77, 2];
+        // let max = Math.max.apply(Math, arr);
+        // console.log(max);
+        // let min = Math.min.apply(Math, arr);
+        // console.log(min);
+
+
+        // bind也可以改变this指向，但区别call 和 apply主要在于 bind不可以执行函数，而是返回改变this指向后的一个新的函数
+
+        // var o = {
+        //     name: 'smluo'
+        // }
+        // function fn (){
+        //     console.log(this);
+        // }
+
+        // // fn.bind(o); // 不会执行fn函数
+
+        // var f = fn.bind(o);
+        // f();
+
+        //主要应用场景  按钮点击后 失效 三秒后恢复正常状态
+
+        // 一个按钮的时候用以下方式可以
+        // let btn = document.querySelector('button');
+        // btn.addEventListener('click', function () {
+        //     this.disabled = true;
+        //     setTimeout(function(){
+        //         btn.disabled = false;
+        //     }, 3000)
+        // })
+
+
+        // 多个按钮时候以下方式就会报错
+        // var btns = document.querySelectorAll('button');
+        // for(var i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener('click', function(){
+        //         this.disabled = true;
+        //         setTimeout(function(){
+        //             btns[i].disabled = false;  // setTimeOut为异步函数, 三秒后执行的时候，i已经变为了4（三个按钮）,所以会报错
+        //         }, 3000)
+        //     })
+        // }
+
+        //上述代码两种解决方案 1
+        // var btns = document.querySelectorAll('button');
+        // for(var i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener('click', function(){
+        //         this.disabled = true;
+        //         let that = this;
+        //         setTimeout(function(){
+        //             that.disabled = false;
+        //         }, 3000)
+        //     })
+        // }
+
+         //上述代码两种解决方案 2
+         var btns = document.querySelectorAll('button');
+        for(var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function(){
+                this.disabled = true;
+                setTimeout(function(){
+                    this.disabled = false; 
+                }.bind(this), 3000)
+            })
+        }
     </script>
 </body>
 </html>

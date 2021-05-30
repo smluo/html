@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 下面结果：1,3,2  同步任务放在主线程执行栈中（主车道），异步任务放在放在任务队列中（应急车道）
+      // js执行机制：1.先执行同步任务2.如果遇到异步任务，将任务放在任务队列中，待同步任务执行完毕再执行任务队列中的异步任务
+    //   console.log(1);
+    //   setTimeout(() => {
+    //     console.log(2);
+    //   }, 0);
+    //   console.log(3);
+
+
+      //js执行机制   主线程执行中遇到的异步任务会提交异步进程处理（何时将异步任务放入任务队列）
+      console.log(1)
+      document.addEventListener('click', ()=>{     // 异步进程会在点击的时候才将异步任务放入任务队列
+          console.log(2)
+      })
+      console.log(3)
+      setTimeout(()=>{                             // 异步进程会在三秒后将异步任务放入任务队列
+          console.log(4);
+      }, 3000)
+
+
+
+      // 上述代码，如果未点击 其他代码已经执行完了，而点击了之后又会执行点击事件对应的方法是因为
+      // js执行机制的事件循环 即 主线程执行完毕，会循环查看任务队列中是否有未执行的方法
+    </script>
+  </body>
+</html>
