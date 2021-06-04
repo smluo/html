@@ -10,13 +10,12 @@ const vm = new Vue({
   methods: {
     searchFn: function() {
       let value = document.querySelector('#value').value;
-      let that = this;
       axios
         .get(`http://localhost:8080/api/highlight/${value}/1/10`)
         .then(function (response) {
           let res = response.data;
-          that.books = res;
-        })
+          this.books = res;
+        }.bind(this))
         .catch(function (error) {
           console.log(error);
         });

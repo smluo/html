@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动画原理</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      section {
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        background: pink;
+      }
+      span {
+        position: absolute;
+        top: 250px;
+        left: 0;
+        height: 150px;
+        width: 150px;
+        background: purple;
+      }
+      .box {
+        position: absolute;
+        right: 0;
+        top: 100px;
+        width: 30px;
+        height: 30px;
+        background: purple;
+        text-align: center;
+        line-height: 30px;
+      }
+      .content {
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        height: 30px;
+        width: 80px;
+        background: yellow;
+        text-align: center;
+        line-height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn1">点我到800</button>
+    <button class="btn2">点我到500</button>
+    <section></section>
+    <span></span>
+    <div class="box">
+      ←
+      <div class="content">hello</div>
+    </div>
+    <script>
+      // 缓动动画
+      function animate(obj, target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+          var step =
+            target - obj.offsetLeft > 0
+              ? Math.ceil((target - obj.offsetLeft) / 10)
+              : Math.floor((target - obj.offsetLeft) / 10);
+          if (obj.offsetLeft == target) {
+            // 停止动画，本质停止定时器
+            clearInterval(obj.timer);
+          }
+          obj.style.left = obj.offsetLeft + step + "px";
+        }, 15);
+      }
+      var span = document.querySelector("span");
+      var btn1 = document.querySelector(".btn1");
+      btn1.addEventListener("click", function () {
+        animate(span, 800);
+      });
+      var btn2 = document.querySelector(".btn2");
+      btn2.addEventListener("click", function () {
+        animate(span, 500);
+      });
+      var box = document.querySelector('.box');
+      var con = document.querySelector('.content');
+      box.addEventListener("mouseenter", function(){
+        animate(con, -80);
+        con.style.display = 'block';
+      })
+      box.addEventListener('mouseleave', ()=>{
+          animate(con,0);
+      })
+    </script>
+  </body>
+</html>
